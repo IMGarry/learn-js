@@ -8,10 +8,13 @@ ucFirst("вася") == "Вася";
 Открыть песочницу с тестами для задачи.
 */
 
-let str = `hello`;
-
 function ucFirst (str) {
-	alert (str[0].toUpperCase()+str.slice(1));
+  if (str[0]===" ") {
+    str = str.slice(1);
+    alert (str[0].toUpperCase()+str.slice(1));
+  } else {
+    alert (str[0].toUpperCase()+str.slice(1));
+  }
 }
 
 
@@ -24,12 +27,12 @@ function ucFirst (str) {
 Функция должна быть нечувствительна к регистру:*/
 
 function checkSpam (str) {
-	let phrase = str.toLowerCase();
-	if ((phrase.indexOf('viagra') != -1)||(phrase.indexOf('xxx') != -1)) {
-		alert("Спам!");
-	} else {
-	  alert("Не спам.");
-	}
+  str = str.toLowerCase();
+  if ((str.indexOf('viagra') != -1)||(str.indexOf('xxx') != -1)) {
+    alert("Спам!");
+  } else {
+    alert("Не спам.");
+  }
 }
 
 checkSpam('buy ViAgRA now');
@@ -55,13 +58,12 @@ truncate("Всем привет!", 20) = "Всем привет!"*/
 
 
 function truncate(str, maxlength) {
-	if (str.length > maxlength) {
-		str = `${str.slice(0, maxlength-1)}...`; 
-		alert (str);
-
-	} else {
-	  alert (str);
-	}
+  if (str.length > maxlength) {
+    str = `${str.slice(0, maxlength-1)}...`; 
+    alert (str);
+  } else {
+    alert (str);
+  }
 }
 
 
@@ -80,13 +82,12 @@ function truncate(str, maxlength) {
 alert (extractCurrencyValue('$120') === 120 ); // true*/
 
 function extractCurrencyValue(str) {
-	if (str[0] === '$') {
-		str = str.slice(1);
-		return (str);
-	} else {
-	 return (str);
-	}
-
+  if (str[0] === '$') {
+    str = str.slice(1);
+    return (str);
+  } else {
+    return (str);
+  }
 }
 
 extractCurrencyValue('$120')
