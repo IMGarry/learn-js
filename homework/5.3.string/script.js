@@ -10,12 +10,6 @@ ucFirst("вася") == "Вася";
 
 let str = `hello`;
 
-// получаем первый символ 
-alert(str[0].toUpperCase()+str.slice(1)); 
-
-alert( ` ${str[0].toUpperCase()}${str.slice(1)} ` ); 
-
-
 function ucFirst (str) {
 	alert (str[0].toUpperCase()+str.slice(1));
 }
