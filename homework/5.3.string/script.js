@@ -17,6 +17,14 @@ function ucFirst (str) {
   }
 }
 
+//REVIEWED by Igor Nepipenko 04/10/19  
+//вы руками вырезаете пробельный символ . Давайте вспомним метод trim
+
+function ucFirst (str) {
+str = str.trim();
+return (str[0].toUpperCase()+str.slice(1));
+}
+
 
 2./////////////////////////////////////////////////
 
@@ -39,7 +47,24 @@ checkSpam('buy ViAgRA now');
 checkSpam('free xxxxx');
 checkSpam("innocent rabbit");
 
+//REVIEWED by Igor Nepipenko 04/10/19  
+//Обратите внимание на условия , во втором задании требуют вернуть true/false , а у вас alert, что в результате undefined
+//так же можно посмотреть в сторону метода includes
+//2 ) сравнения везде  только строгие , мы говорили об этом   !=  =>  !==
 
+function checkSpam (str) {
+  str = str.toLowerCase();
+  if ((str.indexOf('viagra') !== -1)||(str.indexOf('xxx') !== -1)) {
+    return true;
+  } return false;
+}
+// includes
+function checkSpam (str) {
+  str = str.toLowerCase();
+  if ((str.includes('viagra'))||(str.includes('xxx'))) {
+    return true;
+  } return false;
+}
 
 3. ////////////////////////////////////////////////
 
@@ -66,7 +91,17 @@ function truncate(str, maxlength) {
   }
 }
 
+//REVIEWED by Igor Nepipenko 04/10/19  
+//Так же и в следуюущем задании , не плодите if else , вспомните о return
 
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return `${str.slice(0, maxlength-1)}...`; 
+  } return str;
+}
+
+truncate("Вот, что мне хотелось бы сказать на эту тему:", 20);
+truncate("Всем привет!", 20);
 
 
 4. /////////////////////////////////////////////////
@@ -91,3 +126,18 @@ function extractCurrencyValue(str) {
 }
 
 extractCurrencyValue('$120')
+
+
+//REVIEWED by Igor Nepipenko 04/10/19  
+//В последнем задании можно посмотреть в сторону startsWith метода строки и снова если делаете return блок else в вашем случае не нужен
+
+function extractCurrencyValue(str) {
+  if (str.startsWith('$')) {
+    return +str.slice(1).trim();
+  } return +str.trim();
+}
+
+extractCurrencyValue('$120');
+extractCurrencyValue('$    1120');
+extractCurrencyValue('     1120');
+
