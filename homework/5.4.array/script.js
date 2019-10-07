@@ -137,13 +137,12 @@ while (true) {
 	let input = prompt("Введите значение", "");
 	arr.push(input);
 	sum += +input;
-	if (+input===0) break;
+	if (+input===0 || input===null || input==="undefined" || !isNaN(input)) break;
 	}
 	alert (sum);
  } 
 
 sumInput ();
-
 
 5. /////////////////////////////////////////////////////////////////
 
